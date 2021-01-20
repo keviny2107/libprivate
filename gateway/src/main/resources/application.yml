@@ -1,0 +1,90 @@
+server:
+  port: 8088
+
+---
+
+spring:
+  profiles: default
+  cloud:
+    gateway:
+      routes:
+        - id: rental
+          uri: http://localhost:8081
+          predicates:
+            - Path=/rentals/** 
+        - id: payment
+          uri: http://localhost:8082
+          predicates:
+            - Path=/payments/** 
+        - id: mypage
+          uri: http://localhost:8083
+          predicates:
+            - Path= /mypages/**
+        - id: book
+          uri: http://localhost:8084
+          predicates:
+            - Path=/books/** 
+        - id: point
+          uri: http://localhost:8085
+          predicates:
+            - Path=/points/** 
+        - id: mypoint
+          uri: http://localhost:8086
+          predicates:
+            - Path= /mypoints/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+
+---
+
+spring:
+  profiles: docker
+  cloud:
+    gateway:
+      routes:
+        - id: rental
+          uri: http://rental:8080
+          predicates:
+            - Path=/rentals/** 
+        - id: payment
+          uri: http://payment:8080
+          predicates:
+            - Path=/payments/** 
+        - id: mypage
+          uri: http://mypage:8080
+          predicates:
+            - Path= /mypages/**
+        - id: book
+          uri: http://book:8080
+          predicates:
+            - Path=/books/** 
+        - id: point
+          uri: http://point:8080
+          predicates:
+            - Path=/points/** 
+        - id: mypoint
+          uri: http://mypoint:8080
+          predicates:
+            - Path= /mypoints/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins:
+              - "*"
+            allowedMethods:
+              - "*"
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
+
+server:
+  port: 8080
