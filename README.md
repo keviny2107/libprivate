@@ -907,8 +907,10 @@ kubectl apply -f service.yaml
 ![16_비동기up](https://user-images.githubusercontent.com/53402465/105268771-1e097f80-5bd6-11eb-855b-9f61e1d06b03.PNG)
 
 
-#폴리그랏 퍼시스턴스
+##폴리그랏 퍼시스턴스
+
 book 는 다른 서비스와 구별을 위해 별도 hsqldb를 사용 하였다. 이를 위해 book내 pom.xml에 dependency를 h2database에서 hsqldb로 변경 하였다.
+
 ```
 #book의 pom.xml dependency를 수정하여 DB변경
 
@@ -927,7 +929,8 @@ book 는 다른 서비스와 구별을 위해 별도 hsqldb를 사용 하였다.
     <scope>runtime</scope>
   </dependency>
 ```
-#GateWay
+##GateWay
+
 ```
 server:
   port: 8088
