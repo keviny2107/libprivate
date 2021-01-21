@@ -690,7 +690,8 @@ package library;
 
 import org.springframework.data.repository.PagingAndSortingRepository;
 
-public interface BookRepository extends PagingAndSortingRepository<Book, Long>{
+public interface PointRepository extends PagingAndSortingRepository<Point, Long>{
+
 }
 ```
 - 적용 후 REST API 의 테스트
